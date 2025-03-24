@@ -333,6 +333,60 @@ nav i{
         color: #50858b; 
     }
         
+        
+      .sidebar {
+    width: 260px;
+    padding: 20px;
+    background-color: #a1d2ce;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.sidebar h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.sidebar h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+.sidebar label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 3px 0;
+}
+
+.sidebar label:hover {
+    color: #000;
+}
+
+.sidebar input[type="checkbox"], 
+.sidebar input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #007BFF;
+    transform: scale(1.1);
+}
+
+.sidebar input[type="radio"] {
+    margin-top: 0;
+}
+</style>
+
+
+        
     </style>
 </head>
 <body>
@@ -389,12 +443,39 @@ nav i{
     <div class="container">
         <!-- Sidebar with filters -->
         <div class="sidebar">
-            <h3>Filters</h3>
-            <label><input type="checkbox"> Free WiFi</label><br>
-            <label><input type="checkbox"> Parking Available</label><br>
-            <label><input type="checkbox"> Air Conditioning</label><br>
-            <label><input type="checkbox"> Breakfast Included</label><br>
-        </div>
+    <h3>Filters</h3>
+    
+    <h4>Price Range</h4>
+    <label><input type="radio" name="price"> $ - Budget</label><br>
+    <label><input type="radio" name="price"> $$ - Mid-range</label><br>
+    <label><input type="radio" name="price"> $$$ - Luxury</label><br>
+    
+    <h4>Star Rating</h4>
+    <label><input type="checkbox"> 5 Stars</label><br>
+    <label><input type="checkbox"> 4 Stars</label><br>
+    <label><input type="checkbox"> 3 Stars</label><br>
+    
+    <h4>Amenities</h4>
+    <label><input type="checkbox"> Free WiFi</label><br>
+    <label><input type="checkbox"> Parking Available</label><br>
+    <label><input type="checkbox"> Air Conditioning</label><br>
+    <label><input type="checkbox"> Breakfast Included</label><br>
+    <label><input type="checkbox"> Swimming Pool</label><br>
+    <label><input type="checkbox"> Fitness Center</label><br>
+    <label><input type="checkbox"> Spa Services</label><br>
+    <label><input type="checkbox"> Pet Friendly</label><br>
+    
+    <h4>Guest Rating</h4>
+    <label><input type="checkbox"> 9+ Excellent</label><br>
+    <label><input type="checkbox"> 8+ Very Good</label><br>
+    <label><input type="checkbox"> 7+ Good</label><br>
+    
+    <h4>Property Type</h4>
+    <label><input type="checkbox"> Hotel</label><br>
+    <label><input type="checkbox"> Resort</label><br>
+    <label><input type="checkbox"> Apartment</label><br>
+    <label><input type="checkbox"> Hostel</label><br>
+</div>
 
         <!-- Hotel Listings -->
         <div class="hotel-list">

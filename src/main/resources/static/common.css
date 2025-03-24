@@ -1,0 +1,254 @@
+ body {
+            background-color: #eef2f3;
+            font-family: 'Poppins', sans-serif;
+            color : #50858B !important;
+        }
+        .navbar {
+            background-color: #a1d2ce !important;
+           color : #50858B !important;
+            
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+        }
+        .card {
+    transition: 0.3s;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    height: 200px; 
+    object-fit: cover; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+        .debug-session {
+            background: #ffcccb;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none; /* Hide by default */
+        }
+        
+        /* General Footer Styles */
+.cmsWrapper {
+    background-color: #a1d2ce; /* Light Blue */
+    color: #333;
+    padding: 40px 0;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Footer Main Section */
+.footerMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section - Logo & Tagline */
+.footer__leftHeader {
+    display: flex;
+    align-items: center;
+}
+
+.footer__logo {
+    width: 40px;
+    height: auto;
+    margin-right: 12px;
+}
+
+.footerLeftHeaderNew {
+    font-size: 16px;
+    font-weight: 600;
+    color: #007acc;
+}
+
+/* Right Section - Join Button */
+.footer__rightHeader {
+    text-align: right;
+}
+
+.footer__rightHeader button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer__rightHeader button:hover {
+    background-color: #005f99;
+}
+
+.iconClassRight {
+    margin-right: 8px;
+}
+
+/* App Download Section */
+.footerAppIcons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footerAppIcons__downloadButton {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    color: #333;
+    padding: 10px 14px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.footerAppIcons__downloadButton:hover {
+    transform: scale(1.05);
+}
+
+.footerAppIcons__appIcon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+/* Footer Links */
+.footerAppIcons__secondryLinksContainer a {
+    color: #555;
+    text-decoration: none;
+    margin: 6px 12px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.footerAppIcons__secondryLinksContainer a:hover {
+    color: #007acc;
+    text-decoration: underline;
+}
+
+/* Destination Links */
+.footerDestinations__container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.footerDestinations__heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #007acc;
+}
+
+.footerDestinations__cityGrid a {
+    color: #555;
+    text-decoration: none;
+    margin: 6px 10px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.footerDestinations__cityGrid a:hover {
+    color: #007acc;
+    text-decoration: underline;
+}
+
+/* Copyright */
+.footerCopyright {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 13px;
+    color: #666;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .footerMain {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer__leftHeader {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .footer__rightHeader {
+        text-align: center;
+    }
+}
+.btn{
+	 background-color: #50858B !important;
+}
+nav i{
+	padding : 0px 10px ;
+	font-size : 1.5rem;
+}
+   .navbar-brand {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: #2C3E50 !important; 
+    letter-spacing: 1px; 
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: #1A252F !important; 
+}
+        
+    .city-navbar {
+        background-color: white; 
+        padding: 15px 0;
+        text-align: center;
+        border-top: 1px solid #90CAF9; 
+    }
+    
+    .city-links a {
+        text-decoration: none;
+        color: #5497a7; /* Dark blue for contrast */
+        margin: 0 15px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .city-links a:hover {
+        color: #50858b; /* Slightly darker blue on hover */
+    }

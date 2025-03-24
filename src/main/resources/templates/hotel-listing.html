@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotels in <span th:text="${selectedCity}"></span></title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="./common.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 20%;
+            background: #62A8AC;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hotel-list {
+            width: 75%;
+            margin-left: 20px;
+        }
+
+        .hotel-card {
+            display: flex;
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hotel-image {
+            width: 40%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .hotel-info {
+            padding: 15px;
+            width: 60%;
+        }
+
+        .hotel-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .hotel-location {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .hotel-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #50858b;
+        }
+
+        .btn {
+            background-color: #50858b;
+            color: white;
+            
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+
+        }
+
+        .btn:hover {
+            background-color: #a1d2ce;
+        }
+        
+        
+         body {
+            background-color: #eef2f3;
+            font-family: 'Poppins', sans-serif;
+            color : #50858B !important;
+        }
+        .navbar {
+            background-color: #a1d2ce !important;
+           color : #50858B !important;
+            
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+        }
+        .card {
+    transition: 0.3s;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    height: 200px; 
+    object-fit: cover; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+        .debug-session {
+            background: #ffcccb;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none; /* Hide by default */
+        }
+        
+        /* General Footer Styles */
+.cmsWrapper {
+    background-color: #a1d2ce; /* Light Blue */
+    color: #333;
+    padding: 40px 0;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Footer Main Section */
+.footerMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section - Logo & Tagline */
+.footer__leftHeader {
+    display: flex;
+    align-items: center;
+}
+
+.footer__logo {
+    width: 40px;
+    height: auto;
+    margin-right: 12px;
+}
+
+.footerLeftHeaderNew {
+    font-size: 16px;
+    font-weight: 600;
+    color: #007acc;
+}
+
+/* Right Section - Join Button */
+.footer__rightHeader {
+    text-align: right;
+}
+
+.footer__rightHeader button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer__rightHeader button:hover {
+    background-color: #005f99;
+}
+
+.iconClassRight {
+    margin-right: 8px;
+}
+
+/* App Download Section */
+.footerAppIcons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footerAppIcons__downloadButton {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    color: #333;
+    padding: 10px 14px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.footerAppIcons__downloadButton:hover {
+    transform: scale(1.05);
+}
+
+.footerAppIcons__appIcon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+/* Footer Links */
+.footerAppIcons__secondryLinksContainer a {
+    color: #555;
+    text-decoration: none;
+    margin: 6px 12px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.footerAppIcons__secondryLinksContainer a:hover {
+    color: #007acc;
+    text-decoration: underline;
+}
+
+/* Destination Links */
+.footerDestinations__container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.footerDestinations__heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #007acc;
+}
+
+.footerDestinations__cityGrid a {
+    color: #555;
+    text-decoration: none;
+    margin: 6px 10px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.footerDestinations__cityGrid a:hover {
+    color: #007acc;
+    text-decoration: underline;
+}
+
+/* Copyright */
+.footerCopyright {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 13px;
+    color: #666;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .footerMain {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer__leftHeader {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .footer__rightHeader {
+        text-align: center;
+    }
+}
+.btn{
+	 background-color: #50858B !important;
+}
+nav i{
+	padding : 0px 10px ;
+	font-size : 1.5rem;
+}
+   .navbar-brand {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: #2C3E50 !important; 
+    letter-spacing: 1px; 
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: #1A252F !important; 
+}
+        
+    .city-navbar {
+        background-color: white; 
+        padding: 15px 0;
+        text-align: center;
+        border-top: 1px solid #90CAF9; 
+        margin-bottom: 2rem;
+    }
+    
+    .city-links a {
+        text-decoration: none;
+        color: #5497a7; 
+        margin: 0 15px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .city-links a:hover {
+        color: #50858b; 
+    }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    
+        <nav class="navbar navbar-expand-lg bg-primary navbar-light py-3">
+        <div class="container">
+        <i class="fa-solid fa-mountain-city"></i>
+            <a class="navbar-brand fw-bold " href="/hotel">StayEase</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/hotel/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/hotel/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/login" th:if="${session.loggedInUser == null}">Login</a>
+                        <a class="nav-link " href="/logout" th:if="${session.loggedInUser != null}">Logout</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="/hotel/search" method="get">
+                    <input class="form-control me-2" type="search" name="title" placeholder="Find a hotel..." aria-label="Search" required>
+                    <button class="btn btn-dark" type="submit">Search</button>
+                </form>
+            </div>
+        </div>        
+    </nav>
+    <div class="city-navbar">
+    <div class="container">
+        <div class="city-links">
+            <a th:href="@{/hotel/location/Bangalore}">Bangalore</a>
+            <a th:href="@{/hotel/location/Chennai}">Chennai</a>
+            <a th:href="@{/hotel/location/Delhi}">Delhi</a>
+            <a th:href="@{/hotel/location/Maldives}">Maldives</a>
+            <a th:href="@{/hotel/location/Hyderabad}">Hyderabad</a>
+            <a th:href="@{/hotel/location/Kolkata}">Kolkata</a>
+            <a th:href="@{/hotel/location/Mumbai}">Mumbai</a>
+            <a th:href="@{/hotel/location/Noida}">Noida</a>
+            <a th:href="@{/hotel/location/Pune}">Pune</a>
+            <a th:href="@{/hotel}">All Cities</a>
+        </div>
+    </div>
+</div>
+    
+    
+    
+  
+    <div class="container">
+        <!-- Sidebar with filters -->
+        <div class="sidebar">
+            <h3>Filters</h3>
+            <label><input type="checkbox"> Free WiFi</label><br>
+            <label><input type="checkbox"> Parking Available</label><br>
+            <label><input type="checkbox"> Air Conditioning</label><br>
+            <label><input type="checkbox"> Breakfast Included</label><br>
+        </div>
+
+        <!-- Hotel Listings -->
+        <div class="hotel-list">
+            <div th:each="hotel : ${hotels}" class="hotel-card">
+                <img th:src="${hotel.imgUrl}" alt="Hotel Image" class="hotel-image">
+                <div class="hotel-info">
+                    <div class="hotel-name" th:text="${hotel.name}"></div>
+                    <div class="hotel-location" th:text="${hotel.location}"></div>
+                    <div class="hotel-price">₹<span th:text="${hotel.price}"></span> per night</div>
+                    <a th:href="@{/hotel/details/{id}(id=${hotel.id})}" class="btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

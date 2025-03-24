@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a1d2ce;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .hotel-details-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .hotel-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .hotel-description {
+            margin-top: 20px;
+        }
+
+        .hotel-description h2 {
+            color: #5497a7;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #50858b;
+        }
+
+        .btn-primary:hover {
+            background-color: #a1d2ce;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hotel-details-container">
+        <img th:src="${hotel.imgUrl}" alt="Hotel Image" class="hotel-image">
+        
+        <div class="hotel-description">
+            <h2 th:text="${hotel.name}">Hotel Name</h2>
+            <p><strong>Location:</strong> <span th:text="${hotel.location}">City</span></p>
+            <p><strong>Price:</strong> ₹<span th:text="${hotel.price}">0.00</span></p>
+        </div>
+
+        <a href="/hotel" class="btn btn-primary">Back to Home</a>
+        <a th:href="@{/book(hotelId=${hotel.id})}" class="btn btn-success">Book Now</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #A1D2CE; /* Soft pastel background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #FFFFFF; /* White form background */
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #DDDDDD;
+            border-radius: 8px;
+            background-color: #FAFAFA;
+            color: #333;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input:focus {
+            border-color: #6C63FF;
+            background-color: #FFFFFF;
+        }
+
+        button {
+            width: 100%;
+            background-color: #62A8AC; /* Soft purple button */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #50858B;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Book Your Stay</h2>
+        <form th:action="@{/book}" th:object="${booking}" method="post">
+            
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" th:field="*{fullName}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" th:field="*{email}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Check-in Date</label>
+                <input type="date" th:field="*{checkInDate}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Check-out Date</label>
+                <input type="date" th:field="*{checkOutDate}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Guests</label>
+                <input type="number" th:field="*{guests}" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Hotel Name</label>
+                <input type="text" th:field="*{hotelName}" required>
+            </div>
+
+            <button type="submit">Book Now</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
